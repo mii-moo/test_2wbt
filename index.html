@@ -30,7 +30,7 @@
             const formData = new FormData();
             formData.append(entry_id, data_to_send);
             fetch(form_url, { method: "POST", mode: "no-cors", body: formData })
-            .then(() => { alert("送信が完了しました"); })
+            .then(() => { alert("送信が完了しました．タブを閉じても大丈夫です．ありがとうございます．"); })
             .catch((err) => { alert("送信エラーが発生しました: " + err); });
         }
     });
@@ -70,8 +70,9 @@
     // 2.1. 初期画面
     // ============
     const start_screen = {
-        type: jsPsychHtmlKeyboardResponse,
-        stimulus: 'キーを押したら課題を開始します',
+        type: jsPsychHtmlButtonResponse,
+        stimulus: 'STARTで課題を開始します',
+        choices: ['START'],
         data: { variable: 'setting', reward: selected_pattern.name }
     };
 
@@ -113,8 +114,9 @@
     // 2.4. 終了画面
     // ============
     const end_screen = {
-        type: jsPsychHtmlKeyboardResponse,
-        stimulus: 'キーを押したらデータを送信します',
+        type: jsPsychHtmlButtonResponse,
+        stimulus: 'FINISHで、データを送信します',
+        choices: ['FINSH'],
         data: { variable: 'ex' }
     };
 
